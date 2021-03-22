@@ -1,11 +1,12 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 
 function getTickets()
 {
   var tickets = [
     {
       type: 'Enchancement',
-      number: 0,
+      id: 0,
       project: 'FooBar',
       title: 'Break up the HTML into react components',
       owner: 'Jim',
@@ -13,7 +14,7 @@ function getTickets()
     },
     {
       type: 'Enchancement',
-      number: 1,
+      id: 1,
       project: 'FooBar',
       title: 'Make the CSS not suck',
       owner: 'Jim',
@@ -21,7 +22,7 @@ function getTickets()
     },
     {
       type: 'Enchancement',
-      number: 2,
+      id: 2,
       project: 'FooBar',
       title: 'Add sorting to ticket list',
       owner: 'Jim',
@@ -29,7 +30,7 @@ function getTickets()
     },
     {
       type: 'Enchancement',
-      number: 3,
+      id: 3,
       project: 'FooBar',
       title: 'Make data based ticket list',
       owner: 'Jim',
@@ -37,7 +38,7 @@ function getTickets()
     },
     {
       type: 'Enchancement',
-      number: 4,
+      id: 4,
       project: 'FooBar',
       title: 'Add ticket editor',
       owner: 'Jim',
@@ -45,7 +46,7 @@ function getTickets()
     },
     {
       type: 'Enchancement',
-      number: 5,
+      id: 5,
       project: 'FooBar',
       title: 'Be able to select tickets and type in them',
       owner: 'Jim',
@@ -56,32 +57,41 @@ function getTickets()
   return tickets;
 }
 
+function renderRow(ticket)
+{
+    return <tr key={ticket.id}>
+        <th scope="row">{ticket.id}</th>
+        <td>{ticket.type}</td>
+        <td>{ticket.project}</td>
+        <td>{ticket.title}</td>
+        <td>{ticket.owner}</td>
+        <td>{ticket.updated}</td>
+      </tr>
+}
+
+function renderHeader()
+{
+  return <tr>
+    <th scope="col">Ticket #</th>
+    <th scope="col">Type</th>
+    <th scope="col">Project</th>
+    <th scope="col">Title</th>
+    <th scope="col">Owner</th>
+    <th scope="col">Last Updated</th>
+  </tr>
+}
+
 function TicketList() {  
   return (
   <div>
     <h2 className="jumbotron">Tickets</h2>
     <table className="table">
       <thead className="thead-dark">
-        <tr>
-          <th>Type</th>
-          <th>Ticket #</th>
-          <th>Project</th>
-          <th>Title</th>
-          <th>Owner</th>
-          <th>Last Updated</th>
-        </tr>
+        {renderHeader()}
       </thead>
-      {getTickets().map( ticket =>
-        {
-          return <tr>
-            <td>{ticket.type}</td>
-            <td>{ticket.number}</td>
-            <td>{ticket.project}</td>
-            <td>{ticket.title}</td>
-            <td>{ticket.owner}</td>
-            <td>{ticket.updated}</td>
-          </tr>
-        })}
+      <tbody>
+        {getTickets().map(renderRow)}
+      </tbody>
     </table> 
   </div>
   );
