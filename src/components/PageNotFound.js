@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PageNotFound() {
+export default function PageNotFound() {
     return (
         <div className='jumbotron'>
             <h1>Error 404</h1>
@@ -8,5 +8,3 @@ function PageNotFound() {
         </div>
     );
 }
-
-export default PageNotFound;

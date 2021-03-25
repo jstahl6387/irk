@@ -5,18 +5,16 @@ import Header from './common/Header';
 import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './PageNotFound'
 
-function App()
+export default function App()
 {
     return (
         <div className='container-fluid'>
             <Header/>
             <Switch>
                 <Route path= '/' exact component={HomePage}/>
-                <Route path= '/TicketList' exact component={TicketList}/>
+                <Route path= '/TicketList' component={TicketList}/>
                 <Route component={PageNotFound}/>
             </Switch>
         </div>
     );
 }
-
-export default App;
