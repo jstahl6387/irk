@@ -29,6 +29,7 @@ function ticketRow(ticket)
         <th scope="row">{ticket.id}</th>
         <td>{ticket.type}</td>
         <td>{ticket.project}</td>
+        <td>{ticket.priority}</td>
         <td>{ticket.title}</td>
         <td>{ticket.owner}</td>
         <td style={getStatusStyle(ticket.status)}>{ticket.status}</td>
@@ -42,6 +43,7 @@ function ticketHeader()
     <th scope="col">Ticket #</th>
     <th scope="col">Type</th>
     <th scope="col">Project</th>
+    <th scope="col">Priority</th>
     <th scope="col">Title</th>
     <th scope="col">Owner</th>
     <th scope="col">Status</th>
