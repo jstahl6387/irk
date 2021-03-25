@@ -10,7 +10,6 @@ function App()
         <div className='container-fluid'>
             <Header/>
             <Route path= '/' exact component={HomePage}/>
-            <Route path= '/HomePage' component={HomePage}/>
             <Route path= '/TicketList' exact component={TicketList}/>
         </div>
     );
