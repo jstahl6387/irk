@@ -7,7 +7,7 @@ function Header()
 
     return (
         <nav className='container-fluid'>
-            <NavLink activeStyle={activeStyle} to='/'>Home Page</NavLink>
+            <NavLink activeStyle={activeStyle} exact to='/'>Home Page</NavLink>
             {" | "}
             <NavLink activeStyle={activeStyle} to='/TicketList'>Ticket List</NavLink>
         </nav>
