@@ -1,71 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ticketTestData from './TicketTestData';
 
 const statusCompletedStyle = { color: 'green', fontWeight: 'bold' };
 const statusInProgressStyle = { color: 'orange', fontWeight: 'bold'  };
 const statusPendingStyle = { color: 'grey', fontWeight: 'bold'  };
-
-function getTickets()
-{
-  var tickets = [
-    {
-      type: 'Enchancement',
-      id: 0,
-      project: 'FooBar',
-      title: 'Break up the HTML into react components',
-      owner: 'Jim',
-      status: 'Completed',
-      updated: '2021-03-15 9:00:00'
-    },
-    {
-      type: 'Enchancement',
-      id: 1,
-      project: 'FooBar',
-      title: 'Make the CSS not suck',
-      owner: 'Jim',
-      status: 'In Progress',
-      updated: '2021-03-15 9:00:00'
-    },
-    {
-      type: 'Enchancement',
-      id: 2,
-      project: 'FooBar',
-      title: 'Add sorting to ticket list',
-      owner: 'Jim',
-      status: 'Pending',
-      updated: '2021-03-15 9:00:00'
-    },
-    {
-      type: 'Enchancement',
-      id: 3,
-      project: 'FooBar',
-      title: 'Make data based ticket list',
-      owner: 'Jim',
-      status: 'Pending',
-      updated: '2021-03-15 9:00:00'
-    },
-    {
-      type: 'Enchancement',
-      id: 4,
-      project: 'FooBar',
-      title: 'Add ticket editor',
-      owner: 'Jim',
-      status: 'Pending',
-      updated: '2021-03-15 9:00:00'
-    },
-    {
-      type: 'Enchancement',
-      id: 5,
-      project: 'FooBar',
-      title: 'Be able to select tickets and type in them',
-      owner: 'Jim',
-      status: 'Pending',
-      updated: '2021-03-15 9:00:00'
-    }
-  ];
-
-  return tickets;
-}
 
 function getStatusStyle(status)
 {
@@ -85,7 +23,7 @@ function getStatusStyle(status)
   }
 }
 
-function renderRow(ticket)
+function ticketRow(ticket)
 {
     return <tr key={ticket.id}>
         <th scope="row">{ticket.id}</th>
@@ -98,7 +36,7 @@ function renderRow(ticket)
       </tr>
 }
 
-function renderHeader()
+function ticketHeader()
 {
   return <tr>
     <th scope="col">Ticket #</th>
@@ -111,20 +49,18 @@ function renderHeader()
   </tr>
 }
 
-function TicketList() {  
+export default function TicketList() {  
   return (
   <div>
     <h2 className="jumbotron">Tickets</h2>
     <table className="table">
       <thead className="thead-dark">
-        {renderHeader()}
+        {ticketHeader()}
       </thead>
       <tbody>
-        {getTickets().map(renderRow)}
+        {ticketTestData().map(ticketRow)}
       </tbody>
     </table> 
   </div>
   );
 }
-
-export default TicketList;
