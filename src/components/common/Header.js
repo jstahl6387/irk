@@ -1,10 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Header()
 {
+    const activeStyle = {color: 'purple'};
+
     return (
         <nav className='container-fluid'>
-            <a href='/HomePage'>Home Page</a> | <a href='/TicketList'>Ticket List</a>
+            <NavLink activeStyle={activeStyle} to='/HomePage'>Home Page</NavLink>
+            {" | "}
+            <NavLink activeStyle={activeStyle} to='/TicketList'>Ticket List</NavLink>
         </nav>
     );
 }
