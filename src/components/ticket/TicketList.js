@@ -1,6 +1,22 @@
 import React from 'react';
 import ticketTestData from './TicketTestData';
 
+export default function TicketList() {  
+  return (
+  <div>
+    <h2 className="jumbotron">Tickets</h2>
+    <table className="table">
+      <thead className="thead-dark">
+        {ticketHeader()}
+      </thead>
+      <tbody>
+        {ticketTestData().map(ticketRow)}
+      </tbody>
+    </table> 
+  </div>
+  );
+}
+
 const statusCompletedStyle = { color: 'green', fontWeight: 'bold' };
 const statusInProgressStyle = { color: 'orange', fontWeight: 'bold'  };
 const statusPendingStyle = { color: 'grey', fontWeight: 'bold'  };
@@ -49,20 +65,4 @@ function ticketHeader()
     <th scope="col">Status</th>
     <th scope="col">Last Updated</th>
   </tr>
-}
-
-export default function TicketList() {  
-  return (
-  <div>
-    <h2 className="jumbotron">Tickets</h2>
-    <table className="table">
-      <thead className="thead-dark">
-        {ticketHeader()}
-      </thead>
-      <tbody>
-        {ticketTestData().map(ticketRow)}
-      </tbody>
-    </table> 
-  </div>
-  );
 }

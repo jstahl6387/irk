@@ -1,9 +1,9 @@
 import React from 'react';
-import HomePage from './HomePage';
-import TicketList from './TicketList';
-import Header from './common/Header';
+import Home from '../home/Home';
+import TicketList from '../ticket/TicketList';
+import Header from '../common/Header';
 import { Route, Switch } from 'react-router-dom';
-import PageNotFound from './PageNotFound'
+import PageNotFound from '../404/PageNotFound'
 
 export default function App()
 {
@@ -11,7 +11,7 @@ export default function App()
         <div className='container-fluid'>
             <Header/>
             <Switch>
-                <Route path= '/' exact component={HomePage}/>
+                <Route path= '/' exact component={Home}/>
                 <Route path= '/TicketList' component={TicketList}/>
                 <Route component={PageNotFound}/>
             </Switch>
