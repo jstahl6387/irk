@@ -1,7 +1,15 @@
-import React from 'react';
-import ticketTestData from './TicketTestData';
+import React, { useState, useEffect } from 'react';
+import { getTickets } from "../../api/ticketApi";
 
 export default function TicketList() {  
+
+  const [ tickets, setTickets ] = useState([]);
+
+  useEffect( () => 
+  {
+    getTickets().then(_tickets => setTickets(_tickets));
+  }, []);
+
   return (
   <div>
     <h2 className="jumbotron">Tickets</h2>
@@ -10,7 +18,7 @@ export default function TicketList() {
         {ticketHeader()}
       </thead>
       <tbody>
-        {ticketTestData().map(ticketRow)}
+        {tickets.map(ticketRow)}
       </tbody>
     </table> 
   </div>
